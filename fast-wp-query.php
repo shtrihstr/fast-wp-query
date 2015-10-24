@@ -61,6 +61,7 @@ add_action( 'pre_get_posts', function( $query ) {
 
         $query->query_vars['orderby'] = 'post__in';
         $query->query_vars['no_found_rows'] = true;
+        $query->found_posts = count( $query->query_vars['post__in'] );
     }
 
 } );
