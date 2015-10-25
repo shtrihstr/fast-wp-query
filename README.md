@@ -16,7 +16,7 @@ Query time: **31.588 ms**
 ####With plugin
 SQL:   
 ```sql
-SELECT wp_posts.ID FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'post' AND (wp_posts.post_status = 'publish')ORDER BY wp_posts.post_date DESC LIMIT 0, 10;
+SELECT wp_posts.ID FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'post' AND (wp_posts.post_status = 'publish') ORDER BY wp_posts.post_date DESC LIMIT 0, 10;
 ```  
 Query time: **7.869 ms**
 

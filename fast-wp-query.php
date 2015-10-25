@@ -44,12 +44,10 @@ add_action( 'pre_get_posts', function( $query ) {
                 wp_cache_set( 'time-random-posts-' . $query->query_vars_hash, time(), 'query' );
             }
             shuffle( $ids );
+            
+            $limit = empty( $query->query_vars['posts_per_page'] ) ? get_option( 'posts_per_page' ) : $query->query_vars['posts_per_page'];
 
-            if( isset( $query->query_vars['posts_per_page'] ) && $query->query_vars['posts_per_page'] > 0 ) {
-                $ids =  array_slice( $ids, 0, $query->query_vars['posts_per_page'] );
-            }
-            else {
-                $limit = get_option( 'posts_per_page' );
+            if( $limit > 0 ) {
                 $ids =  array_slice( $ids, 0, $limit );
             }
 
